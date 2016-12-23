@@ -47,8 +47,27 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+    <!-- 全局事务配置 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="edit*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="upload*" propagation="REQUIRED"/>
+            <tx:method name="sync*" propagation="REQUIRED"/>
+            <tx:method name="*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut expression="execution(* com.source3g.eom.*.service.impl.*.*(..))" id="pointCut"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut"/>
+    </aop:config>
+
 	<!-- 启用注解事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<#--<tx:annotation-driven transaction-manager="transactionManager" />-->
 
 	<!-- mybatis相关配置 -->
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
