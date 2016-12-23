@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import ${basePackage}.${pagePackage};
 import ${basePackage}.${daoPackage}.IBaseDao;
@@ -37,13 +36,11 @@ public class BaseServiceImpl<T,PK> implements IBaseService<T,PK> {
 	}
 
 	@Override
-	@Transactional
 	public Integer deleteById(PK id) {
 		return baseDao.deleteById(id);
 	}
 
 	@Override
-	@Transactional
 	public Integer deleteByIds(String ids) {
 		@SuppressWarnings("unchecked")
 		List<PK> list = (List<PK>) Arrays.asList(ids.split(","));
@@ -51,13 +48,11 @@ public class BaseServiceImpl<T,PK> implements IBaseService<T,PK> {
 	}
 
 	@Override
-	@Transactional
 	public Integer update(T t) {
 		return baseDao.update(t);
 	}
 
 	@Override
-	@Transactional
 	public Integer save(T t) {
 		return baseDao.save(t);
 	}

@@ -62,12 +62,9 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut expression="execution(* com.source3g.eom.*.service.impl.*.*(..))" id="pointCut"/>
+        <aop:pointcut expression="execution(* com.source3g.*.service..*.*(..)))" id="pointCut"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut"/>
     </aop:config>
-
-	<!-- 启用注解事务 -->
-	<#--<tx:annotation-driven transaction-manager="transactionManager" />-->
 
 	<!-- mybatis相关配置 -->
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

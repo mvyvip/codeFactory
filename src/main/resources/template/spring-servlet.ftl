@@ -27,29 +27,5 @@
 		<property name="suffix" value=".jsp"/>
 		<property name="order" value="1"/>
 	</bean>
-	
-	<!-- 文件上传解析器 -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- 文件上传的最大值为5MB -->
-		<property name="maxUploadSize" value="#{1024 * 1024 * 5}" />
-		<!-- 默认编码为utf-8 -->
-		<property name="defaultEncoding" value="UTF-8" />
-	</bean>
 
-	<!-- 拦截器相关 -->
-	<!-- 登录拦截 -->
-	<!-- <mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<mvc:exclude-mapping path="/static/**"/>
-			<mvc:exclude-mapping path="/js/**" />
-			<mvc:exclude-mapping path="/*.js"/>
-			<mvc:exclude-mapping path="/*.css"/>
-			<mvc:exclude-mapping path="/*.png"/>
-			<mvc:exclude-mapping path="/*.ico"/>
-			<mvc:exclude-mapping path="/*.jpg"/>
-			<mvc:exclude-mapping path="/*.gif"/>
-			<bean class="${basePackage}.web.interceptor.LoginInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors> -->
 </beans>
