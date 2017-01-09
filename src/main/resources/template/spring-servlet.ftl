@@ -8,6 +8,9 @@
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<!-- 使用aspectj代理  能够让切面切到controller -->
+	<aop:aspectj-autoproxy />
+	
 	<!-- 开启mvc注解 -->
 	<mvc:annotation-driven />
 
